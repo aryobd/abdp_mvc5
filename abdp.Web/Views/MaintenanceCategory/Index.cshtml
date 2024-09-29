@@ -1,0 +1,15 @@
+﻿@model abdp.Web.Models.MaintenanceCategoryViewModel
+@{
+    ViewBag.Title = "Maintenance Category";
+}
+
+<h2>Index</h2>
+
+<h2>
+    @if (Model != null)
+    {
+        @Model.IdMaintenanceCategory
+        <br />
+        @Model.MaintenanceCategoryName
+    }
+</h2>

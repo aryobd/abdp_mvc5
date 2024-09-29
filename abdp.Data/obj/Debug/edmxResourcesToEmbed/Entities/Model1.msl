@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="olss_prod_4ModelStoreContainer" CdmEntityContainer="olss_prod_4Entities">
+    <EntitySetMapping Name="MaintenanceCategories">
+      <EntityTypeMapping TypeName="olss_prod_4Model.MaintenanceCategory">
+        <MappingFragment StoreEntitySet="MaintenanceCategory">
+          <ScalarProperty Name="IdMaintenanceCategory" ColumnName="IdMaintenanceCategory" />
+          <ScalarProperty Name="MaintenanceCategoryName" ColumnName="MaintenanceCategoryName" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+          <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+          <ScalarProperty Name="IsDraft" ColumnName="IsDraft" />
+          <ScalarProperty Name="IsSubmitted" ColumnName="IsSubmitted" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MaintenanceItems">
+      <EntityTypeMapping TypeName="olss_prod_4Model.MaintenanceItem">
+        <MappingFragment StoreEntitySet="MaintenanceItem">
+          <ScalarProperty Name="IdMaintenanceItem" ColumnName="IdMaintenanceItem" />
+          <ScalarProperty Name="MaintenanceItemName" ColumnName="MaintenanceItemName" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+          <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+          <ScalarProperty Name="IsDraft" ColumnName="IsDraft" />
+          <ScalarProperty Name="IsSubmitted" ColumnName="IsSubmitted" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

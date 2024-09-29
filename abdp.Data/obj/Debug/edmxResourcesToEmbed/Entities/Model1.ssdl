@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="olss_prod_4Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="MaintenanceCategory">
+    <Key>
+      <PropertyRef Name="IdMaintenanceCategory" />
+    </Key>
+    <Property Name="IdMaintenanceCategory" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaintenanceCategoryName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Remarks" Type="varchar" MaxLength="200" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="LastModified" Type="datetime" />
+    <Property Name="LastModifiedBy" Type="varchar" MaxLength="25" />
+    <Property Name="IsDraft" Type="bit" Nullable="false" />
+    <Property Name="IsSubmitted" Type="bit" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MaintenanceItem">
+    <Key>
+      <PropertyRef Name="IdMaintenanceItem" />
+    </Key>
+    <Property Name="IdMaintenanceItem" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaintenanceItemName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Remarks" Type="varchar" MaxLength="200" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="LastModified" Type="datetime" />
+    <Property Name="LastModifiedBy" Type="varchar" MaxLength="25" />
+    <Property Name="IsDraft" Type="bit" Nullable="false" />
+    <Property Name="IsSubmitted" Type="bit" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="olss_prod_4ModelStoreContainer">
+    <EntitySet Name="MaintenanceCategory" EntityType="Self.MaintenanceCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MaintenanceItem" EntityType="Self.MaintenanceItem" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
