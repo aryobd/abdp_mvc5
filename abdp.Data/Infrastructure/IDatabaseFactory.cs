@@ -9,6 +9,6 @@ namespace abdp.Data.Infrastructure
 {
     public interface IDatabaseFactory
     {
-        OlssEntities Get();
+        abdpEntities Get();
     }
 }

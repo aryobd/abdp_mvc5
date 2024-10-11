@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace abdp.Service.Models
 {
-    public class MaintenanceItemListInfo
+    public class MaintenanceItemServiceModel
     {
         public int IdMaintenanceItem { get; set; }
         public string MaintenanceItemName { get; set; }

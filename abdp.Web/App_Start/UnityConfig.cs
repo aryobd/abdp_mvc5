@@ -32,13 +32,23 @@ namespace abdp.Web
             //container.RegisterType(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             //container.RegisterType<IHubActivator, HubActivator>();
 
+            #region REPOSITORY
             container.RegisterType<IMaintenanceCategoryRepository, MaintenanceCategoryRepository>();
             container.RegisterType<IMaintenanceItemRepository, MaintenanceItemRepository>();
 
+            container.RegisterType<ITmOlssBrandRepository, TmOlssBrandRepository>();
+            container.RegisterType<ITmOlssModelVehicleRepository, TmOlssModelVehicleRepository>();
+            #endregion REPOSITORY
+
+            #region SERVICE
             container.RegisterType<IMaintenanceCategoryService, MaintenanceCategoryService>();
             container.RegisterType<IMaintenanceItemService, MaintenanceItemService>();
 
+            container.RegisterType<ITmOlssBrandService, TmOlssBrandService>();
+            container.RegisterType<ITmOlssModelVehicleService, TmOlssModelVehicleService>();
+
             container.RegisterType<IEmployeeService, EmployeeService>();
+            #endregion SERVICE
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }

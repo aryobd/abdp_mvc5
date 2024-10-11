@@ -1,14 +1,9 @@
-﻿using abdp.Data;
-using abdp.Data.Entities;
+﻿using abdp.Data.Entities;
 using abdp.Data.Infrastructure;
 using abdp.Data.IRepository;
 
 using abdp.Service.IServices;
 using abdp.Service.Models;
-
-//using Dsf.Olss.Data;
-//using Dsf.Olss.Data.Entities;
-//using Dsf.Olss.Data.Infrastructure;
 
 using System;
 using System.Collections.Generic;
@@ -55,32 +50,6 @@ namespace abdp.Service.Services
 
                 return true;
             }
-            /*
-            catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
-            {
-                Exception raise = dbEx;
-
-                foreach (var validationErrors in dbEx.EntityValidationErrors)
-                {
-                    foreach (var validationError in validationErrors.ValidationErrors)
-                    {
-                        string message = string.Format(
-                            "{0}:{1}",
-                            validationErrors.Entry.Entity,
-                            validationError.ErrorMessage
-                        );
-                        
-                        // raise a new exception nesting the current instance as InnerException
-                        raise = new InvalidOperationException(message, raise);
-                    }
-                }
-
-                //throw raise;
-                Tracer.Error(raise.ToString());
-
-                return false;
-            }
-            */
             catch (Exception ex)
             {
                 return false;
@@ -103,32 +72,6 @@ namespace abdp.Service.Services
 
                 return true;
             }
-            /*
-            catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
-            {
-                Exception raise = dbEx;
-
-                foreach (var validationErrors in dbEx.EntityValidationErrors)
-                {
-                    foreach (var validationError in validationErrors.ValidationErrors)
-                    {
-                        string message = string.Format(
-                            "{0}:{1}",
-                            validationErrors.Entry.Entity,
-                            validationError.ErrorMessage
-                        );
-                        
-                        // raise a new exception nesting the current instance as InnerException
-                        raise = new InvalidOperationException(message, raise);
-                    }
-                }
-
-                //throw raise;
-                Tracer.Error(raise.ToString());
-
-                return false;
-            }
-            */
             catch (Exception ex)
             {
                 return false;
@@ -148,13 +91,13 @@ namespace abdp.Service.Services
                 return data;
         }
 
-        private IQueryable<MaintenanceItemListInfo> Query
+        private IQueryable<MaintenanceItemServiceModel> Query
         {
             get
             {
                 return (from repo in _repository.AsQueryable()
                         where repo.IsDeleted.Equals(false)
-                        select new MaintenanceItemListInfo()
+                        select new MaintenanceItemServiceModel()
                         {
                             IdMaintenanceItem = repo.IdMaintenanceItem,
                             MaintenanceItemName = repo.MaintenanceItemName,
@@ -176,7 +119,7 @@ namespace abdp.Service.Services
             return Query.Count();
         }
 
-        public int TotalRows(Expression<Func<MaintenanceItemListInfo, bool>> where)
+        public int TotalRows(Expression<Func<MaintenanceItemServiceModel, bool>> where)
         {
             if (where == null)
                 return TotalRows();
@@ -184,7 +127,7 @@ namespace abdp.Service.Services
             return Query.Where(where).Count();
         }
 
-        public IEnumerable<MaintenanceItemListInfo> GetList(Expression<Func<MaintenanceItemListInfo, bool>> where, int take, int skip, Expression<Func<MaintenanceItemListInfo, string>> sort, string sortDirection)
+        public IEnumerable<MaintenanceItemServiceModel> GetList(Expression<Func<MaintenanceItemServiceModel, bool>> where, int take, int skip, Expression<Func<MaintenanceItemServiceModel, string>> sort, string sortDirection)
         {
             if (sortDirection.Equals("asc"))
             {
@@ -207,7 +150,7 @@ namespace abdp.Service.Services
             return Query.Where(o => o.IsActive && !o.IsDraft).Count();
         }
 
-        public int TotalActiveRows(Expression<Func<MaintenanceItemListInfo, bool>> where)
+        public int TotalActiveRows(Expression<Func<MaintenanceItemServiceModel, bool>> where)
         {
             if (where == null)
                 return TotalActiveRows();
@@ -215,7 +158,7 @@ namespace abdp.Service.Services
             return Query.Where(where).Where(o => o.IsActive && !o.IsDraft).Count();
         }
 
-        public IEnumerable<MaintenanceItemListInfo> GetActiveList(Expression<Func<MaintenanceItemListInfo, bool>> where, int take, int skip, Expression<Func<MaintenanceItemListInfo, string>> sort, string sortDirection)
+        public IEnumerable<MaintenanceItemServiceModel> GetActiveList(Expression<Func<MaintenanceItemServiceModel, bool>> where, int take, int skip, Expression<Func<MaintenanceItemServiceModel, string>> sort, string sortDirection)
         {
             if (sortDirection.Equals("asc"))
             {
@@ -244,32 +187,6 @@ namespace abdp.Service.Services
 
                 return data.IdMaintenanceItem > 0;
             }
-            /*
-            catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
-            {
-                Exception raise = dbEx;
-
-                foreach (var validationErrors in dbEx.EntityValidationErrors)
-                {
-                    foreach (var validationError in validationErrors.ValidationErrors)
-                    {
-                        string message = string.Format(
-                            "{0}:{1}",
-                            validationErrors.Entry.Entity,
-                            validationError.ErrorMessage
-                        );
-                        
-                        // raise a new exception nesting the current instance as InnerException
-                        raise = new InvalidOperationException(message, raise);
-                    }
-                }
-
-                //throw raise;
-                Tracer.Error(raise.ToString());
-
-                return false;
-            }
-            */
             catch (Exception ex)
             {
                 return false;
@@ -293,44 +210,10 @@ namespace abdp.Service.Services
 
                 return data.IdMaintenanceItem > 0;
             }
-            /*
-            catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
-            {
-                Exception raise = dbEx;
-
-                foreach (var validationErrors in dbEx.EntityValidationErrors)
-                {
-                    foreach (var validationError in validationErrors.ValidationErrors)
-                    {
-                        string message = string.Format(
-                            "{0}:{1}",
-                            validationErrors.Entry.Entity,
-                            validationError.ErrorMessage
-                        );
-                        
-                        // raise a new exception nesting the current instance as InnerException
-                        raise = new InvalidOperationException(message, raise);
-                    }
-                }
-
-                //throw raise;
-                Tracer.Error(raise.ToString());
-
-                return false;
-            }
-            */
             catch (Exception ex)
             {
                 return false;
             }
         }
-
-        /*
-        public IEnumerable<OptionItemValue> GetReplacementCycleUnit()
-        {
-            var optionIntem = _optionItemRepository.AsQueryable().FirstOrDefault(o => o.OptionItemName.Equals("Replacement Cycle Unit"));
-            return optionIntem != null ? optionIntem.OptionItemValues.AsEnumerable() : null;
-        }
-        */
     }
 }

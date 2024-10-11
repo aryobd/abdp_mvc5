@@ -14,7 +14,7 @@ namespace abdp.Data.Repository
     public class MaintenanceCategoryRepository : RepositoryBase<MaintenanceCategory>, IMaintenanceCategoryRepository
     {
         public MaintenanceCategoryRepository(IDatabaseFactory databaseFactory)
-            : base(databaseFactory)
+            : base(databaseFactory) 
         {
         }
 
@@ -22,13 +22,6 @@ namespace abdp.Data.Repository
         {
             return dbset.Where(where).SingleOrDefault();
         }
-
-        /*
-        public MaintenanceCategory SelectById(int id)
-        {
-            return dbset.Where(o => o.IdMaintenanceCategory.Equals(id)).FirstOrDefault();
-        }
-        */
 
         public MaintenanceCategory SelectByName(string name)
         {

@@ -1,8 +1,6 @@
 ﻿using abdp.Data.Entities;
 using abdp.Service.Models;
 
-//using Dsf.Olss.Data.Entities;
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,21 +16,21 @@ namespace abdp.Service.IServices
         bool DataEdit(MaintenanceItem maintenanceItem);
         MaintenanceItem SelectById(int id);
         int TotalRows();
-        int TotalRows(Expression<Func<MaintenanceItemListInfo, bool>> where);
-        IEnumerable<MaintenanceItemListInfo> GetList(
-            Expression<Func<MaintenanceItemListInfo, bool>> where,
+        int TotalRows(Expression<Func<MaintenanceItemServiceModel, bool>> where);
+        IEnumerable<MaintenanceItemServiceModel> GetList(
+            Expression<Func<MaintenanceItemServiceModel, bool>> where,
             int take,
             int skip,
-            Expression<Func<MaintenanceItemListInfo, string>> sort,
+            Expression<Func<MaintenanceItemServiceModel, string>> sort,
             string sortDirection
         );
         int TotalActiveRows();
-        int TotalActiveRows(Expression<Func<MaintenanceItemListInfo, bool>> where);
-        IEnumerable<MaintenanceItemListInfo> GetActiveList(
-            Expression<Func<MaintenanceItemListInfo, bool>> where,
+        int TotalActiveRows(Expression<Func<MaintenanceItemServiceModel, bool>> where);
+        IEnumerable<MaintenanceItemServiceModel> GetActiveList(
+            Expression<Func<MaintenanceItemServiceModel, bool>> where,
             int take,
             int skip,
-            Expression<Func<MaintenanceItemListInfo, string>> sort,
+            Expression<Func<MaintenanceItemServiceModel, string>> sort,
             string sortDirection
         );
         bool IsExistItemName(string name);

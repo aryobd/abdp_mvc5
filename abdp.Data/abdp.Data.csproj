@@ -58,9 +58,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\abdpEntities.cs" />
     <Compile Include="Entities\Partial\OlssEntities.cs" />
     <Compile Include="Entities\Partial\MaintenanceCategory.cs" />
     <Compile Include="Entities\Partial\MaintenanceItem.cs" />
+    <Compile Include="Entities\tm_olss_brand.cs" />
+    <Compile Include="Entities\tm_olss_model_vehicle.cs" />
     <Compile Include="Infrastructure\DatabaseFactory.cs" />
     <Compile Include="Infrastructure\Disposable.cs" />
     <Compile Include="Infrastructure\IDatabaseFactory.cs" />
@@ -69,9 +72,13 @@
     <Compile Include="Infrastructure\UnitOfWork.cs" />
     <Compile Include="IRepository\IMaintenanceCategoryRepository.cs" />
     <Compile Include="IRepository\IMaintenanceItemRepository.cs" />
+    <Compile Include="IRepository\ITmOlssBrandRepository.cs" />
+    <Compile Include="IRepository\ITmOlssModelVehicleRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\MaintenanceCategoryRepository.cs" />
     <Compile Include="Repository\MaintenanceItemRepository.cs" />
+    <Compile Include="Repository\TmOlssBrandRepository.cs" />
+    <Compile Include="Repository\TmOlssModelVehicleRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

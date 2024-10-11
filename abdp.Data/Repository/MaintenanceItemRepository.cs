@@ -23,10 +23,10 @@ namespace abdp.Data.Repository
             return dbset.Where(where).SingleOrDefault();
         }
 
-        public MaintenanceItem SelectById(int id)
-        {
-            return dbset.Where(o => o.IdMaintenanceItem.Equals(id)).FirstOrDefault();
-        }
+        //public MaintenanceItem SelectById(int id)
+        //{
+        //    return dbset.Where(o => o.IdMaintenanceItem.Equals(id)).FirstOrDefault();
+        //}
 
         public MaintenanceItem SelectByName(string name)
         {

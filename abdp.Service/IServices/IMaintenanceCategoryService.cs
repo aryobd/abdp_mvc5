@@ -1,8 +1,6 @@
 ﻿using abdp.Data.Entities;
 using abdp.Service.Models;
 
-//using Dsf.Olss.Data.Entities;
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,25 +14,31 @@ namespace abdp.Service.IServices
     {
         bool DataCreate(MaintenanceCategory maintenanceCategory);
         bool DataEdit(MaintenanceCategory maintenanceCategory);
+
         MaintenanceCategory SelectById(int id);
+
         int TotalRows();
-        int TotalRows(Expression<Func<MaintenanceCategoryListInfo, bool>> where);
-        IEnumerable<MaintenanceCategoryListInfo> GetList(
-            Expression<Func<MaintenanceCategoryListInfo, bool>> where,
+        int TotalRows(Expression<Func<MaintenanceCategoryServiceModel, bool>> where);
+
+        IEnumerable<MaintenanceCategoryServiceModel> GetList(
+            Expression<Func<MaintenanceCategoryServiceModel, bool>> where,
             int take,
             int skip,
-            Expression<Func<MaintenanceCategoryListInfo, string>> sort,
+            Expression<Func<MaintenanceCategoryServiceModel, string>> sort,
             string sortDirection
         );
+
         int TotalActiveRows();
-        int TotalActiveMaintenanceCategory(Expression<Func<MaintenanceCategoryListInfo, bool>> where);
-        IEnumerable<MaintenanceCategoryListInfo> GetActiveList(
-            Expression<Func<MaintenanceCategoryListInfo, bool>> where,
+        int TotalActiveMaintenanceCategory(Expression<Func<MaintenanceCategoryServiceModel, bool>> where);
+
+        IEnumerable<MaintenanceCategoryServiceModel> GetActiveList(
+            Expression<Func<MaintenanceCategoryServiceModel, bool>> where,
             int take,
             int skip,
-            Expression<Func<MaintenanceCategoryListInfo, string>> sort,
+            Expression<Func<MaintenanceCategoryServiceModel, string>> sort,
             string sortDirection
         );
+
         bool IsExistCategoryName(string name);
         bool IsExistCategoryNameExceptMe(int id, string name);
     }

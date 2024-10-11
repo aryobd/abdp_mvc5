@@ -42,15 +42,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IServices\ITmOlssModelVehicleService.cs" />
     <Compile Include="IServices\IEmployeeService.cs" />
     <Compile Include="IServices\IMaintenanceCategoryService.cs" />
     <Compile Include="IServices\IMaintenanceItemService.cs" />
-    <Compile Include="Models\MaintenanceCategoryListInfo.cs" />
-    <Compile Include="Models\MaintenanceItemListInfo.cs" />
+    <Compile Include="IServices\ITmOlssBrandService.cs" />
+    <Compile Include="Models\MaintenanceCategoryServiceModel.cs" />
+    <Compile Include="Models\MaintenanceItemServiceModel.cs" />
+    <Compile Include="Models\TmOlssBrandServiceModel.cs" />
+    <Compile Include="Models\TmOlssModelVehicleServiceModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\EmployeeService.cs" />
     <Compile Include="Services\MaintenanceCategoryService.cs" />
     <Compile Include="Services\MaintenanceItemService.cs" />
+    <Compile Include="Services\TmOlssBrandService.cs" />
+    <Compile Include="Services\TmOlssModelVehicleService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\abdp.Data\abdp.Data.csproj">

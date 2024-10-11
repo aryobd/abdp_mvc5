@@ -9,13 +9,13 @@ namespace abdp.Data.Infrastructure
 {
     public class DatabaseFactory : Disposable, IDatabaseFactory
     {
-        private OlssEntities _dataContext;
+        private abdpEntities _dataContext;
 
-        public OlssEntities Get()
+        public abdpEntities Get()
         {
             if (_dataContext == null)
             {
-                _dataContext = new OlssEntities();
+                _dataContext = new abdpEntities();
                 _dataContext.Database.CommandTimeout = 180;
 
                 return _dataContext;

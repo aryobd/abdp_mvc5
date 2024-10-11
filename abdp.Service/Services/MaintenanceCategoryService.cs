@@ -1,14 +1,9 @@
-﻿using abdp.Data;
-using abdp.Data.Entities;
+﻿using abdp.Data.Entities;
 using abdp.Data.Infrastructure;
 using abdp.Data.IRepository;
 
 using abdp.Service.IServices;
 using abdp.Service.Models;
-
-//using Dsf.Olss.Data;
-//using Dsf.Olss.Data.Entities;
-//using Dsf.Olss.Data.Infrastructure;
 
 using System;
 using System.Collections.Generic;
@@ -21,7 +16,6 @@ namespace abdp.Service.Services
 {
     public class MaintenanceCategoryService : IMaintenanceCategoryService
     {
-
         private readonly IMaintenanceCategoryRepository _repository;
         private readonly IUnitOfWork _unitOfWork;
 
@@ -29,6 +23,31 @@ namespace abdp.Service.Services
         {
             _repository = repository;
             _unitOfWork = unitOfWork;
+        }
+
+        private IQueryable<MaintenanceCategoryServiceModel> Query
+        {
+            get
+            {
+                return (
+                    from repo in _repository.AsQueryable()
+                    where repo.IsDeleted.Equals(false)
+                    select new MaintenanceCategoryServiceModel()
+                    {
+                        IdMaintenanceCategory = repo.IdMaintenanceCategory,
+                        MaintenanceCategoryName = repo.MaintenanceCategoryName,
+                        Remarks = repo.Remarks,
+                        CreatedDate = repo.CreatedDate,
+                        CreatedBy = repo.CreatedBy,
+                        LastModified = repo.LastModified,
+                        LastModifiedBy = repo.LastModifiedBy,
+                        IsDraft = repo.IsDraft,
+                        IsSubmitted = repo.IsSubmitted,
+                        IsActive = repo.IsActive,
+                        IsDeleted = repo.IsDeleted
+                    }
+                );
+            }
         }
 
         private void DataSave()
@@ -49,32 +68,6 @@ namespace abdp.Service.Services
 
                 return true;
             }
-            /*
-            catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
-            {
-                Exception raise = dbEx;
-
-                foreach (var validationErrors in dbEx.EntityValidationErrors)
-                {
-                    foreach (var validationError in validationErrors.ValidationErrors)
-                    {
-                        string message = string.Format(
-                            "{0}:{1}",
-                            validationErrors.Entry.Entity,
-                            validationError.ErrorMessage
-                        );
-                        
-                        // raise a new exception nesting the current instance as InnerException
-                        raise = new InvalidOperationException(message, raise);
-                    }
-                }
-
-                //throw raise;
-                Tracer.Error(raise.ToString());
-
-                return false;
-            }
-            */
             catch (Exception ex)
             {
                 return false;
@@ -97,32 +90,6 @@ namespace abdp.Service.Services
 
                 return true;
             }
-            /*
-            catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
-            {
-                Exception raise = dbEx;
-
-                foreach (var validationErrors in dbEx.EntityValidationErrors)
-                {
-                    foreach (var validationError in validationErrors.ValidationErrors)
-                    {
-                        string message = string.Format(
-                            "{0}:{1}",
-                            validationErrors.Entry.Entity,
-                            validationError.ErrorMessage
-                        );
-                        
-                        // raise a new exception nesting the current instance as InnerException
-                        raise = new InvalidOperationException(message, raise);
-                    }
-                }
-
-                //throw raise;
-                Tracer.Error(raise.ToString());
-
-                return false;
-            }
-            */
             catch (Exception ex)
             {
                 return false;
@@ -142,35 +109,12 @@ namespace abdp.Service.Services
                 return data;
         }
 
-        private IQueryable<MaintenanceCategoryListInfo> Query
-        {
-            get
-            {
-                return (from repo in _repository.AsQueryable()
-                        where repo.IsDeleted.Equals(false)
-                        select new MaintenanceCategoryListInfo()
-                        {
-                            IdMaintenanceCategory = repo.IdMaintenanceCategory,
-                            MaintenanceCategoryName = repo.MaintenanceCategoryName,
-                            Remarks = repo.Remarks,
-                            CreatedDate = repo.CreatedDate,
-                            CreatedBy = repo.CreatedBy,
-                            LastModified = repo.LastModified,
-                            LastModifiedBy = repo.LastModifiedBy,
-                            IsDraft = repo.IsDraft,
-                            IsSubmitted = repo.IsSubmitted,
-                            IsActive = repo.IsActive,
-                            IsDeleted = repo.IsDeleted
-                        });
-            }
-        }
-
         public int TotalRows()
         {
             return Query.Count();
         }
 
-        public int TotalRows(Expression<Func<MaintenanceCategoryListInfo, bool>> where)
+        public int TotalRows(Expression<Func<MaintenanceCategoryServiceModel, bool>> where)
         {
             if (where == null)
                 return TotalRows();
@@ -178,11 +122,11 @@ namespace abdp.Service.Services
             return Query.Where(where).Count();
         }
 
-        public IEnumerable<MaintenanceCategoryListInfo> GetList(
-            Expression<Func<MaintenanceCategoryListInfo, bool>> where,
+        public IEnumerable<MaintenanceCategoryServiceModel> GetList(
+            Expression<Func<MaintenanceCategoryServiceModel, bool>> where,
             int take,
             int skip,
-            Expression<Func<MaintenanceCategoryListInfo, string>> sort,
+            Expression<Func<MaintenanceCategoryServiceModel, string>> sort,
             string sortDirection
         )
         {
@@ -207,7 +151,7 @@ namespace abdp.Service.Services
             return Query.Where(o => o.IsActive && !o.IsDraft).Count();
         }
 
-        public int TotalActiveMaintenanceCategory(Expression<Func<MaintenanceCategoryListInfo, bool>> where)
+        public int TotalActiveMaintenanceCategory(Expression<Func<MaintenanceCategoryServiceModel, bool>> where)
         {
             if (where == null)
                 return TotalActiveRows();
@@ -215,11 +159,11 @@ namespace abdp.Service.Services
             return Query.Where(where).Where(o => o.IsActive && !o.IsDraft).Count();
         }
 
-        public IEnumerable<MaintenanceCategoryListInfo> GetActiveList(
-            Expression<Func<MaintenanceCategoryListInfo, bool>> where,
+        public IEnumerable<MaintenanceCategoryServiceModel> GetActiveList(
+            Expression<Func<MaintenanceCategoryServiceModel, bool>> where,
             int take,
             int skip,
-            Expression<Func<MaintenanceCategoryListInfo, string>> sort,
+            Expression<Func<MaintenanceCategoryServiceModel, string>> sort,
             string sortDirection
         )
         {
@@ -250,32 +194,6 @@ namespace abdp.Service.Services
 
                 return data.IdMaintenanceCategory > 0;
             }
-            /*
-            catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
-            {
-                Exception raise = dbEx;
-
-                foreach (var validationErrors in dbEx.EntityValidationErrors)
-                {
-                    foreach (var validationError in validationErrors.ValidationErrors)
-                    {
-                        string message = string.Format(
-                            "{0}:{1}",
-                            validationErrors.Entry.Entity,
-                            validationError.ErrorMessage
-                        );
-                        
-                        // raise a new exception nesting the current instance as InnerException
-                        raise = new InvalidOperationException(message, raise);
-                    }
-                }
-
-                //throw raise;
-                Tracer.Error(raise.ToString());
-
-                return false;
-            }
-            */
             catch (Exception ex)
             {
                 return false;
@@ -299,32 +217,6 @@ namespace abdp.Service.Services
 
                 return data.IdMaintenanceCategory > 0;
             }
-            /*
-            catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
-            {
-                Exception raise = dbEx;
-
-                foreach (var validationErrors in dbEx.EntityValidationErrors)
-                {
-                    foreach (var validationError in validationErrors.ValidationErrors)
-                    {
-                        string message = string.Format(
-                            "{0}:{1}",
-                            validationErrors.Entry.Entity,
-                            validationError.ErrorMessage
-                        );
-                        
-                        // raise a new exception nesting the current instance as InnerException
-                        raise = new InvalidOperationException(message, raise);
-                    }
-                }
-
-                //throw raise;
-                Tracer.Error(raise.ToString());
-
-                return false;
-            }
-            */
             catch (Exception ex)
             {
                 return false;

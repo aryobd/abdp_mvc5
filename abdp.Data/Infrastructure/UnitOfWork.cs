@@ -11,14 +11,14 @@ namespace abdp.Data.Infrastructure
     public class UnitOfWork : IUnitOfWork
     {
         private readonly IDatabaseFactory _databaseFactory;
-        private OlssEntities _dataContext;
+        private abdpEntities _dataContext;
 
         public UnitOfWork(IDatabaseFactory databaseFactory)
         {
             this._databaseFactory = databaseFactory;
         }
 
-        protected OlssEntities DataContext
+        protected abdpEntities DataContext
         {
             get
             {

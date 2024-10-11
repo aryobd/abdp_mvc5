@@ -10,7 +10,7 @@ namespace abdp.Data.Infrastructure
 {
     public class RepositoryBase<TEntity> where TEntity : class
     {
-        private OlssEntities _db = null;
+        private abdpEntities _db = null;
         protected readonly IDbSet<TEntity> dbset;
 
         public RepositoryBase(IDatabaseFactory databaseFactory)
@@ -25,11 +25,10 @@ namespace abdp.Data.Infrastructure
             private set;
         }
 
-        protected OlssEntities DataContext
+        protected abdpEntities DataContext
         {
             get { return _db ?? (_db = DatabaseFactory.Get()); }
         }
-
 
         public IEnumerable<TEntity> SelectAll()
         {
