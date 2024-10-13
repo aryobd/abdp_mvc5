@@ -26,7 +26,7 @@ namespace abdp.Web.Controllers
                 #region SET FILTER
                 Expression<Func<TmOlssBrandServiceModel, bool>> filter = null;
 
-                if (param != null)
+                if (param.sSearch != null)
                 {
                     filter = (
                         o => o.brand_name.Contains(param.sSearch)
@@ -57,8 +57,8 @@ namespace abdp.Web.Controllers
                 return Json(new
                     {
                         param.sEcho,
-                        iTotalRecords = 0,
-                        iTotalDisplayRecords = 0,
+                        iTotalRecords = _service.TotalRows(),
+                        iTotalDisplayRecords = _service.TotalRows(filter),
                         aaData = result.ToList()
                     },
                     JsonRequestBehavior.AllowGet
