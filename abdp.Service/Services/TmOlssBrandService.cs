@@ -25,11 +25,12 @@ namespace abdp.Service.Services
             _unitOfWork = unitOfWork;
         }
 
+        /*
         private IQueryable<TmOlssBrandServiceModel> Query
         {
             get
             {
-                return (
+                var query = (
                     from repo in _repository.AsQueryable()
                     select new TmOlssBrandServiceModel()
                     {
@@ -39,6 +40,54 @@ namespace abdp.Service.Services
                         brand_desc = repo.brand_desc
                     }
                 );
+
+                return query;
+            }
+        }
+        */
+
+        private IQueryable<TmOlssBrandServiceModel> Query
+        {
+            get
+            {
+                var query1 = (
+                    from repo in _repository.AsQueryable()
+                    select new TmOlssBrandServiceModel()
+                    {
+                        tm_olss_brand_id = repo.tm_olss_brand_id,
+                        tm_olss_brand_id_prev = repo.tm_olss_brand_id_prev,
+                        brand_name = repo.brand_name,
+                        brand_desc = repo.brand_desc
+                    }
+                );
+
+                var query2 = (
+                    from repo in _repository.AsQueryable()
+                    select new TmOlssBrandServiceModel()
+                    {
+                        tm_olss_brand_id = repo.tm_olss_brand_id,
+                        tm_olss_brand_id_prev = repo.tm_olss_brand_id_prev,
+                        brand_name = repo.brand_name,
+                        brand_desc = repo.brand_desc
+                    }
+                );
+
+                var query = query1.Where(q1 => query2.All(q2 => q2.tm_olss_brand_id_prev != q1.tm_olss_brand_id));
+
+                /*
+                VARIABLE query DI ATAS AKAN MENGHASILKAN QUERY SQL SEPERTI INI:
+
+                select a.*
+                from abdp.dbo.tm_olss_brand a
+                where not exists
+                (
+                    select 1
+                    from abdp.dbo.tm_olss_brand b
+                    where a.tm_olss_brand_id = b.tm_olss_brand_id_prev
+                );
+                */
+
+                return query;
             }
         }
 
