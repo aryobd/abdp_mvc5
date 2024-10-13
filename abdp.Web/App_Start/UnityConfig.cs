@@ -3,8 +3,10 @@ using abdp.Data.Infrastructure;
 using abdp.Data.IRepository;
 using abdp.Data.Repository;
 
-//using Dsf.Olss.Data;
-//using Dsf.Olss.Data.Infrastructure;
+using olss.Data;
+using olss.Data.Infrastructure;
+using olss.Data.IRepository;
+using olss.Data.Repository;
 
 using abdp.Service.IServices;
 using abdp.Service.Services;
@@ -29,6 +31,9 @@ namespace abdp.Web
             container.RegisterType<IDatabaseFactory, DatabaseFactory>();
             container.RegisterType<IUnitOfWork, UnitOfWork>();
 
+            container.RegisterType<IDatabaseFactoryOlss, DatabaseFactoryOlss>();
+            container.RegisterType<IUnitOfWorkOlss, UnitOfWorkOlss>();
+
             //container.RegisterType(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             //container.RegisterType<IHubActivator, HubActivator>();
 
@@ -36,8 +41,8 @@ namespace abdp.Web
             container.RegisterType<IMaintenanceCategoryRepository, MaintenanceCategoryRepository>();
             container.RegisterType<IMaintenanceItemRepository, MaintenanceItemRepository>();
 
-            container.RegisterType<ITmOlssBrandRepository, TmOlssBrandRepository>();
-            container.RegisterType<ITmOlssModelVehicleRepository, TmOlssModelVehicleRepository>();
+            container.RegisterType<Data.IRepository.ITmOlssBrandRepository, Data.Repository.TmOlssBrandRepository>();
+            container.RegisterType<Data.IRepository.ITmOlssModelVehicleRepository, Data.Repository.TmOlssModelVehicleRepository>();
             #endregion REPOSITORY
 
             #region SERVICE

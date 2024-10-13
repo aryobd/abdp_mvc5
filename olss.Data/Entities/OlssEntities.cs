@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace abdp.Data.Entities
+namespace olss.Data.Entities
 {
     using System;
     using System.Data.Entity;

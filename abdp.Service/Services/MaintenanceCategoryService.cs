@@ -1,6 +1,6 @@
-﻿using abdp.Data.Entities;
-using abdp.Data.Infrastructure;
-using abdp.Data.IRepository;
+﻿using olss.Data.Entities;
+using olss.Data.Infrastructure;
+using olss.Data.IRepository;
 
 using abdp.Service.IServices;
 using abdp.Service.Models;
@@ -17,9 +17,9 @@ namespace abdp.Service.Services
     public class MaintenanceCategoryService : IMaintenanceCategoryService
     {
         private readonly IMaintenanceCategoryRepository _repository;
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly IUnitOfWorkOlss _unitOfWork;
 
-        public MaintenanceCategoryService(IMaintenanceCategoryRepository repository, IUnitOfWork unitOfWork)
+        public MaintenanceCategoryService(IMaintenanceCategoryRepository repository, IUnitOfWorkOlss unitOfWork)
         {
             _repository = repository;
             _unitOfWork = unitOfWork;

@@ -17,7 +17,7 @@
 
 @*<table id="myTable" class="table table-striped table-bordered display" width="100%">*@
 <div class="col-md-12">
-    <table id="myDataTable" class="display nowrap" style="width:100%">
+    <table id="myDataTable" class="table table-striped display nowrap" style="width:100%">
         <thead>
             <tr>
                 <th width="120px">Category Name</th>
@@ -33,21 +33,95 @@
 
 @section Scripts {
     <script>
-        $(document).ready(function () {
-            function LoadDataTale() {
-                $('#myDataTable').each(function () {
-                    var oDataTable = $(this).dataTale({
-                        fixedHeader: {
-                            header: true,
-                            footer: true,
-                            headerOffset: 50
-                        }
-                    });
-                });
-            }
+        function LoadDataTable() {
+            $('#myDataTable').each(function () {
+                var oDataTable = $(this).dataTable({
+                    "bServerSide"     : true,
+                    "bProcessing"     : true,
+                    "aaSorting"       : [ [0, "desc"] ],
+                    "sAjaxSource"     : "@Url.Action("AjaxHandler", "MaintenanceCategory")",
+                    "sDom"            : "<'row'<'col-sm-6'l><'col-sm-6'f>r>t<'row'<'col-sm-6'i><'col-sm-6'p>>",
+                    "sPaginationType" : "full_numbers",
+                    "aoColumns"       : [
+                        { "mData" : "MaintenanceCategoryName" },
+                        { "mData" : "Remarks" },
+                        { "mData" : "CreatedBy" },
+                        {
+                            "mData"    : "CreatedDate",
+                            "fnRender" : function (aObj) {
+                                var date = new Date(parseInt(aObj.aData["CreatedDate"].substr(6)));
+                                var modeldate = (date.getMonth() + 1) + "/" + date.getDate() + "/" + date.getFullYear();
 
+                                return modeldate;
+                            }
+                        },
+                        {
+                            "mData"       : "IsActive",
+                            "bSearchable" : false,
+                            "bSortable"   : false,
+                            "fnRender"    : function (oObj) {
+                                var IsActive = oObj.aData["IsActive"];
+                                var IsDraft = oObj.aData["IsDraft"];
+                                var IsSubmit = oObj.aData["IsSubmitted"];
+
+                                if (IsActive == true && IsDraft == false && IsSubmit == false) {
+                                    return "<span class='label label-success'>active</span>"
+                                }
+                                else if (IsActive == false && IsDraft == false && IsSubmit == false) {
+                                    return "<span class='label label-default'>inactive</span>"
+                                }
+                                else if ((IsActive == false && IsDraft == true && IsSubmit == false) || (IsActive == true && IsDraft == true && IsSubmit == false)) {
+                                    return "<span class='label label-info'>draft</span>"
+                                }
+                                else if ((IsActive == false && IsDraft == false && IsSubmit == true) || (IsActive == true && IsDraft == false && IsSubmit == true)) {
+                                    return "<span class='label label-info'>submitted</span>"
+                                }
+                                else {
+                                    return "no status";
+                                }
+                            }
+                        },
+                        {
+                            "mData"       : "IdMaintenanceCategory",
+                            "bSearchable" : false,
+                            "bSortable"   : false,
+                            "fnRender"    : function (oObj) {
+                                var Id = oObj.aData["IdMaintenanceCategory"];
+                                var IsActive = oObj.aData["IsActive"];
+                                var IsDraft = oObj.aData["IsDraft"];
+                                var IsSubmit = oObj.aData["IsSubmitted"];
+
+                                if (IsActive == true || (IsActive == false && IsDraft == false && IsSubmit == false)) {
+                                    return "&nbsp;" +
+                                        "<a title='Detail' href='@Url.Action("Detail", "MaintenanceCategory")/" + Id + "' class='btn btn-info btn-xs'>" +
+                                        "<i class='fa fa-bars'></i>" +
+                                        "</a>" +
+                                        "&nbsp;" +
+                                        "<a title='Edit' disabled='disabled' href='@Url.Action("Edit", "MaintenanceCategory")/" + Id + "' class='btn btn-primary btn-xs'>" +
+                                        "<i class='fa fa-edit'></i>" +
+                                        "</a>" +
+                                        "&nbsp;";
+                                }
+                                else {
+                                    return "&nbsp;" +
+                                        "<a title='Detail' href='@Url.Action("Detail", "MaintenanceCategory")/" + Id + "' class='btn btn-info btn-xs'>" +
+                                        "<i class='fa fa-bars'></i>" +
+                                        "</a>" +
+                                        "&nbsp;" +
+                                        "<a title='Edit' href='@Url.Action("Edit", "MaintenanceCategory")/" + Id + "' class='btn btn-primary btn-xs'>" +
+                                        "<i class='fa fa-edit'></i>" +
+                                        "</a>" +
+                                        "&nbsp;";
+                                }
+                            }
+                        }
+                    ]
+                });
+            })
+        }
+
+        $(document).ready(function () {
             LoadDataTable();
         });
     </script>
 }
-

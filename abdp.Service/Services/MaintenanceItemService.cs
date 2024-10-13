@@ -1,6 +1,6 @@
-﻿using abdp.Data.Entities;
-using abdp.Data.Infrastructure;
-using abdp.Data.IRepository;
+﻿using olss.Data.Entities;
+using olss.Data.Infrastructure;
+using olss.Data.IRepository;
 
 using abdp.Service.IServices;
 using abdp.Service.Models;
@@ -19,12 +19,12 @@ namespace abdp.Service.Services
 
         private readonly IMaintenanceItemRepository _repository;
         //private readonly IGenericRepository<OptionItem> _optionItemRepository;
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly IUnitOfWorkOlss _unitOfWork;
 
         public MaintenanceItemService(
             IMaintenanceItemRepository repository,
             //IGenericRepository<OptionItem> optionItemRepository,
-            IUnitOfWork unitOfWork
+            IUnitOfWorkOlss unitOfWork
         )
         {
             _repository = repository;

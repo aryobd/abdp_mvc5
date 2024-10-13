@@ -1,6 +1,6 @@
-﻿using abdp.Data.Entities;
-using abdp.Data.Infrastructure;
-using abdp.Data.IRepository;
+﻿using olss.Data.Entities;
+using olss.Data.Infrastructure;
+using olss.Data.IRepository;
 
 using System;
 using System.Collections.Generic;
@@ -9,11 +9,11 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace abdp.Data.Repository
+namespace olss.Data.Repository
 {
     public class MaintenanceItemRepository : RepositoryBase<MaintenanceItem>, IMaintenanceItemRepository
     {
-        public MaintenanceItemRepository(IDatabaseFactory databaseFactory)
+        public MaintenanceItemRepository(IDatabaseFactoryOlss databaseFactory)
             : base(databaseFactory)
         {
         }

@@ -1,4 +1,4 @@
-﻿using abdp.Data.Entities;
+﻿using olss.Data.Entities;
 
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace abdp.Data.IRepository
+namespace olss.Data.IRepository
 {
     public interface IMaintenanceItemRepository
     {

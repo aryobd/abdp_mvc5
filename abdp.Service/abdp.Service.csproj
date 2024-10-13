@@ -63,6 +63,10 @@
       <Project>{a5129ad2-c438-4dd8-b437-6bb1b420ba08}</Project>
       <Name>abdp.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\olss.Data\olss.Data.csproj">
+      <Project>{8631ee90-94c6-45c5-8215-0cb7d361f6e2}</Project>
+      <Name>olss.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

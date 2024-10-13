@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace abdp.Data.Entities
+namespace olss.Data.Entities
 {
-    [Table("MaintenanceItem")]
-    public partial class MaintenanceItem
+    [Table("MaintenanceCategory")]
+    public partial class MaintenanceCategory
     {
         [Key]
-        public int IdMaintenanceItem { get; set; }
-        public string MaintenanceItemName { get; set; }
+        public int IdMaintenanceCategory { get; set; }
+        public string MaintenanceCategoryName { get; set; }
         public string Remarks { get; set; }
         public System.DateTime CreatedDate { get; set; }
         public string CreatedBy { get; set; }

@@ -104,8 +104,8 @@ namespace abdp.Web.Controllers
                 return Json(new
                     {
                         param.sEcho,
-                        iTotalRecords = 0,
-                        iTotalDisplayRecords = 0,
+                        iTotalRecords = _service.TotalRows(),
+                        iTotalDisplayRecords = _service.TotalRows(filter),
                         aaData = result.ToList()
                     },
                     JsonRequestBehavior.AllowGet

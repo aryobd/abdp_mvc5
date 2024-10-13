@@ -9,7 +9,6 @@ namespace abdp.Web
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include("~/Scripts/jquery-{version}.js"));
-            bundles.Add(new ScriptBundle("~/bundles/jquery371").Include("~/Scripts/DataTables/jquery-3.7.1.js"));
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include("~/Scripts/jquery.validate*"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
@@ -17,12 +16,12 @@ namespace abdp.Web
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include("~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include("~/Scripts/bootstrap.js"));
-            bundles.Add(new ScriptBundle("~/bundles/datatables").Include("~/Scripts/DataTables/datatables.min.js"));
+            bundles.Add(new ScriptBundle("~/bundles/datatables").Include("~/Scripts/Olss/jquery.dataTables.min.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/Content/bootstrap.css",
                 "~/Content/site.css",
-                "~/Content/DataTables/datatables.min.css"));
+                "~/Content/Olss/datatables.css"));
         }
     }
 }

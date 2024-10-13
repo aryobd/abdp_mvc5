@@ -1,4 +1,4 @@
-﻿using abdp.Data.Entities;
+﻿using olss.Data.Entities;
 using abdp.Service.Models;
 
 using System;

@@ -1,4 +1,4 @@
-﻿using abdp.Data.Entities;
+﻿using olss.Data.Entities;
 
 using System;
 using System.Collections.Generic;
@@ -6,17 +6,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace abdp.Data.Infrastructure
+namespace olss.Data.Infrastructure
 {
-    public class DatabaseFactory : Disposable, IDatabaseFactory
+    public class DatabaseFactoryOlss : Disposable, IDatabaseFactoryOlss
     {
-        private abdpEntities _dataContext;
+        private OlssEntities _dataContext;
 
-        public abdpEntities Get()
+        public OlssEntities Get()
         {
             if (_dataContext == null)
             {
-                _dataContext = new abdpEntities();
+                _dataContext = new OlssEntities();
                 _dataContext.Database.CommandTimeout = 180;
 
                 return _dataContext;

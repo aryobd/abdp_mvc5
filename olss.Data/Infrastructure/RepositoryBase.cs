@@ -1,4 +1,4 @@
-﻿using abdp.Data.Entities;
+﻿using olss.Data.Entities;
 
 using System;
 using System.Collections.Generic;
@@ -7,26 +7,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace abdp.Data.Infrastructure
+namespace olss.Data.Infrastructure
 {
     public class RepositoryBase<TEntity> where TEntity : class
     {
-        private abdpEntities _db = null;
+        private OlssEntities _db = null;
         protected readonly IDbSet<TEntity> dbset;
 
-        public RepositoryBase(IDatabaseFactory databaseFactory)
+        public RepositoryBase(IDatabaseFactoryOlss databaseFactory)
         {
             DatabaseFactory = databaseFactory;
             dbset = DataContext.Set<TEntity>();
         }
 
-        protected IDatabaseFactory DatabaseFactory
+        protected IDatabaseFactoryOlss DatabaseFactory
         {
             get;
             private set;
         }
 
-        protected abdpEntities DataContext
+        protected OlssEntities DataContext
         {
             get { return _db ?? (_db = DatabaseFactory.Get()); }
         }

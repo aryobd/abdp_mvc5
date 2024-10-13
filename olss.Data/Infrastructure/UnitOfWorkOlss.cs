@@ -1,4 +1,4 @@
-﻿using abdp.Data.Entities;
+﻿using olss.Data.Entities;
 
 using System;
 using System.Collections.Generic;
@@ -7,19 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace abdp.Data.Infrastructure
+namespace olss.Data.Infrastructure
 {
-    public class UnitOfWork : IUnitOfWork
+    public class UnitOfWorkOlss : IUnitOfWorkOlss
     {
-        private readonly IDatabaseFactory _databaseFactory;
-        private abdpEntities _dataContext;
+        private readonly IDatabaseFactoryOlss _databaseFactory;
+        private OlssEntities _dataContext;
 
-        public UnitOfWork(IDatabaseFactory databaseFactory)
+        public UnitOfWorkOlss(IDatabaseFactoryOlss databaseFactory)
         {
             this._databaseFactory = databaseFactory;
         }
 
-        protected abdpEntities DataContext
+        protected OlssEntities DataContext
         {
             get
             {

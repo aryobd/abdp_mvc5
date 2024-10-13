@@ -214,6 +214,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\DataTables\datatables.min.css" />
+    <Content Include="Content\Olss\datatables.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -235,6 +236,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Olss\jquery.dataTables.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -297,6 +299,10 @@
     <ProjectReference Include="..\abdp.Service\abdp.Service.csproj">
       <Project>{99aa029c-eac1-45df-aef8-74fafce5a265}</Project>
       <Name>abdp.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\olss.Data\olss.Data.csproj">
+      <Project>{8631ee90-94c6-45c5-8215-0cb7d361f6e2}</Project>
+      <Name>olss.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
