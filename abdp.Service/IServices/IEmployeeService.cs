@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace abdp.Service.IServices
+namespace abdp.Service
 {
     public interface IEmployeeService
     {

@@ -1,6 +1,5 @@
 ﻿using olss.Data.Entities;
 using olss.Data.Infrastructure;
-using olss.Data.IRepository;
 
 using System;
 using System.Collections.Generic;
@@ -9,7 +8,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace olss.Data.Repository
+namespace olss.Data
 {
     public class MaintenanceCategoryRepository : RepositoryBase<MaintenanceCategory>, IMaintenanceCategoryRepository
     {

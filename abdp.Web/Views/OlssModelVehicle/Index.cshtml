@@ -1,15 +1,16 @@
 ﻿@{
-    ViewBag.Title = "OLSS Brand";
+    ViewBag.Title = "OLSS Model Vehicle";
 }
 
-<h2>OLSS Brand</h2>
+<h2>OLSS Model Vehicle</h2>
 
 <div class="table-responsive">
     <table id="MainDataTable" class="table table-striped">
         <thead>
             <tr>
                 <th>Brand Name</th>
-                <th>Brand Description</th>
+                <th>Model Vehicle Name</th>
+                <th>Model Vehicle Description</th>
             </tr>
         </thead>
     </table>
@@ -24,12 +25,13 @@
                     "bServerSide"     : true,
                     "bProcessing"     : true,
                     "aaSorting"       : [ [0, "desc"] ],
-                    "sAjaxSource"     : "@Url.Action("AjaxHandler", "TmOlssBrand")",
+                    "sAjaxSource"     : "@Url.Action("AjaxHandler", "OlssModelVehicle")",
                     "sDom"            : "<'row'<'col-sm-6'l><'col-sm-6'f>r>t<'row'<'col-sm-6'i><'col-sm-6'p>>",
                     "sPaginationType" : "full_numbers",
                     "aoColumns"       : [
                         { "mData" : "brand_name" },
-                        { "mData" : "brand_desc" }
+                        { "mData": "model_vehicle_name" },
+                        { "mData": "model_vehicle_desc" }
                     ]
                 });
             })

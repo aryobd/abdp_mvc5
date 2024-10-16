@@ -1,15 +1,10 @@
 using abdp.Data;
 using abdp.Data.Infrastructure;
-using abdp.Data.IRepository;
-using abdp.Data.Repository;
 
 using olss.Data;
 using olss.Data.Infrastructure;
-using olss.Data.IRepository;
-using olss.Data.Repository;
 
-using abdp.Service.IServices;
-using abdp.Service.Services;
+using abdp.Service;
 
 using System.Web.Mvc;
 using Unity;
@@ -41,8 +36,8 @@ namespace abdp.Web
             container.RegisterType<IMaintenanceCategoryRepository, MaintenanceCategoryRepository>();
             container.RegisterType<IMaintenanceItemRepository, MaintenanceItemRepository>();
 
-            container.RegisterType<Data.IRepository.ITmOlssBrandRepository, Data.Repository.TmOlssBrandRepository>();
-            container.RegisterType<Data.IRepository.ITmOlssModelVehicleRepository, Data.Repository.TmOlssModelVehicleRepository>();
+            container.RegisterType<ITmOlssBrandRepository, TmOlssBrandRepository>();
+            container.RegisterType<ITmOlssModelVehicleRepository, TmOlssModelVehicleRepository>();
             #endregion REPOSITORY
 
             #region SERVICE

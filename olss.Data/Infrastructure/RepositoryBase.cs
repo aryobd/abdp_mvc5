@@ -71,14 +71,14 @@ namespace olss.Data.Infrastructure
             _db.Entry(obj).State = EntityState.Modified;
         }
 
-        public IQueryable<TEntity> AsQueryable(System.Linq.Expressions.Expression<Func<TEntity, bool>> where)
-        {
-            return dbset.AsQueryable().Where(where);
-        }
-
         public IQueryable<TEntity> AsQueryable()
         {
             return dbset.AsQueryable();
+        }
+
+        public IQueryable<TEntity> AsQueryable(System.Linq.Expressions.Expression<Func<TEntity, bool>> where)
+        {
+            return dbset.AsQueryable().Where(where);
         }
     }
 }

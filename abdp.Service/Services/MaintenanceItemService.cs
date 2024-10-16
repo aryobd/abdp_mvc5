@@ -1,8 +1,7 @@
-﻿using olss.Data.Entities;
+﻿using olss.Data;
+using olss.Data.Entities;
 using olss.Data.Infrastructure;
-using olss.Data.IRepository;
 
-using abdp.Service.IServices;
 using abdp.Service.Models;
 
 using System;
@@ -12,7 +11,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace abdp.Service.Services
+namespace abdp.Service
 {
     public class MaintenanceItemService : IMaintenanceItemService
     {

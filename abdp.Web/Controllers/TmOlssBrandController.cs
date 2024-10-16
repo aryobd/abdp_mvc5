@@ -1,6 +1,8 @@
-﻿using abdp.Service.IServices;
+﻿using abdp.Service;
 using abdp.Service.Models;
+
 using abdp.Web.Models;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,13 +29,11 @@ namespace abdp.Web.Controllers
                 Expression<Func<TmOlssBrandServiceModel, bool>> filter = null;
 
                 if (param.sSearch != null)
-                {
                     filter = (
                         o => o.brand_name.Contains(param.sSearch)
                              ||
                              o.brand_desc.Contains(param.sSearch)
                     );
-                }
                 #endregion SET FILTER
 
                 #region SET SORTING & ORDERING

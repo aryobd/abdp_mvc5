@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace abdp.Service.Models
+namespace abdp.Web.Models
 {
-    public class TmOlssModelVehicleServiceModel
+    public class TmOlssModelVehicleViewModel
     {
         public int tm_olss_model_vehicle_id { get; set; }
         public Nullable<int> tm_olss_model_vehicle_id_prev { get; set; }

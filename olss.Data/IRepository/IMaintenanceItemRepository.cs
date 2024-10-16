@@ -7,17 +7,17 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace olss.Data.IRepository
+namespace olss.Data
 {
     public interface IMaintenanceItemRepository
     {
         IEnumerable<MaintenanceItem> SelectAll();
-        MaintenanceItem SelectSingle(Expression<Func<MaintenanceItem, bool>> where);
         MaintenanceItem SelectById(int id);
+        MaintenanceItem SelectSingle(Expression<Func<MaintenanceItem, bool>> where);
         MaintenanceItem SelectByName(string name);
 
-        IQueryable<MaintenanceItem> AsQueryable(Expression<Func<MaintenanceItem, bool>> where);
         IQueryable<MaintenanceItem> AsQueryable();
+        IQueryable<MaintenanceItem> AsQueryable(Expression<Func<MaintenanceItem, bool>> where);
 
         void Insert(MaintenanceItem obj);
         void Update(MaintenanceItem obj);

@@ -1,12 +1,10 @@
-﻿using abdp.Service.IServices;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace abdp.Service.Services
+namespace abdp.Service
 {
     public class EmployeeService : IEmployeeService
     {

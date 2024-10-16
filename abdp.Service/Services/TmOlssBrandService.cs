@@ -1,8 +1,8 @@
-﻿using abdp.Data.Entities;
+﻿using abdp.Data;
+using abdp.Data.Entities;
 using abdp.Data.Infrastructure;
-using abdp.Data.IRepository;
 
-using abdp.Service.IServices;
+//using abdp.Service.IServices;
 using abdp.Service.Models;
 
 using System;
@@ -12,7 +12,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace abdp.Service.Services
+namespace abdp.Service
 {
     public class TmOlssBrandService : ITmOlssBrandService
     {

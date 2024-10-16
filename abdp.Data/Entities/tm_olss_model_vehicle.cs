@@ -29,7 +29,7 @@ namespace abdp.Data.Entities
         public int tm_olss_brand_id { get; set; }
         public string model_vehicle_name { get; set; }
         public string model_vehicle_desc { get; set; }
-    
+
         //public virtual tm_olss_brand tm_olss_brand { get; set; }
         //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         //public virtual ICollection<tm_olss_model_vehicle> tm_olss_model_vehicle_prev { get; set; }

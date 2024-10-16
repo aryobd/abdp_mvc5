@@ -1,8 +1,8 @@
-﻿using abdp.Data.Entities;
+﻿using abdp.Data;
+using abdp.Data.Entities;
 using abdp.Data.Infrastructure;
-using abdp.Data.IRepository;
 
-using abdp.Service.IServices;
+//using abdp.Service.IServices;
 using abdp.Service.Models;
 
 using System;
@@ -12,16 +12,22 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace abdp.Service.Services
+namespace abdp.Service
 {
     public class TmOlssModelVehicleService : ITmOlssModelVehicleService
     {
         private readonly ITmOlssModelVehicleRepository _repository;
+        private readonly ITmOlssBrandRepository _tmOlssBrandRepository;
         private readonly IUnitOfWork _unitOfWork;
 
-        public TmOlssModelVehicleService(ITmOlssModelVehicleRepository repository, IUnitOfWork unitOfWork)
+        public TmOlssModelVehicleService(
+            ITmOlssModelVehicleRepository repository,
+            ITmOlssBrandRepository tmOlssBrandRepository,
+            IUnitOfWork unitOfWork
+        )
         {
             _repository = repository;
+            _tmOlssBrandRepository = tmOlssBrandRepository;
             _unitOfWork = unitOfWork;
         }
 
@@ -29,6 +35,7 @@ namespace abdp.Service.Services
         {
             get
             {
+                /*
                 return (
                     from repo in _repository.AsQueryable()
                     select new TmOlssModelVehicleServiceModel()
@@ -40,6 +47,57 @@ namespace abdp.Service.Services
                         model_vehicle_desc = repo.model_vehicle_desc
                     }
                 );
+                */
+
+                var query1 = (
+                    from a in _repository.AsQueryable()
+                    select new TmOlssModelVehicleServiceModel()
+                    {
+                        tm_olss_model_vehicle_id = a.tm_olss_model_vehicle_id,
+                        tm_olss_model_vehicle_id_prev = a.tm_olss_model_vehicle_id_prev,
+                        tm_olss_brand_id = a.tm_olss_brand_id,
+                        model_vehicle_name = a.model_vehicle_name,
+                        model_vehicle_desc = a.model_vehicle_desc
+                    }
+                );
+
+                var query2 = (
+                    from brand in _tmOlssBrandRepository.AsQueryable()
+                    select new TmOlssBrandServiceModel()
+                    {
+                        tm_olss_brand_id = brand.tm_olss_brand_id,
+                        tm_olss_brand_id_prev = brand.tm_olss_brand_id_prev,
+                        brand_name = brand.brand_name,
+                        brand_desc = brand.brand_desc
+                    }
+                );
+
+                var combinedQuery = (
+                    from a in _repository.AsQueryable()
+                    join b in _tmOlssBrandRepository.AsQueryable()
+                    on a.tm_olss_brand_id equals b.tm_olss_brand_id
+                    select new TmOlssModelVehicleServiceModel()
+                    {
+                        tm_olss_model_vehicle_id = a.tm_olss_model_vehicle_id,
+                        tm_olss_model_vehicle_id_prev = a.tm_olss_model_vehicle_id_prev,
+                        tm_olss_brand_id = a.tm_olss_brand_id,
+                        model_vehicle_name = a.model_vehicle_name,
+                        model_vehicle_desc = a.model_vehicle_desc,
+                        brand_name = b.brand_name
+                    }
+                );
+                
+                try
+                {
+                    var results = combinedQuery.ToList(); // Eksekusi query
+                                                          // Lakukan sesuatu dengan 'results', misalnya debug untuk melihat data
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error: {ex.Message}");
+                }
+
+                return query1;
             }
         }
 

@@ -8,7 +8,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace abdp.Service.IServices
+namespace abdp.Service
 {
     public interface IMaintenanceItemService
     {
