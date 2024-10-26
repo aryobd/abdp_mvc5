@@ -16,12 +16,12 @@ namespace abdp.Web
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include("~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include("~/Scripts/bootstrap.js"));
-            bundles.Add(new ScriptBundle("~/bundles/datatables").Include("~/Scripts/DataTables1.9.4/js/jquery.dataTables.min.js"));
+            bundles.Add(new ScriptBundle("~/bundles/datatables").Include("~/Scripts/DataTables1.13.7/js/jquery.dataTables.min.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/Content/bootstrap.css",
                 "~/Content/site.css",
-                "~/Content/DataTables1.9.4/css/jquery.dataTables.css"));
+                "~/Content/DataTables1.13.7/css/jquery.dataTables.min.css"));
         }
     }
 }
