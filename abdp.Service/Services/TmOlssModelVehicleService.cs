@@ -57,7 +57,8 @@ namespace abdp.Service
                         tm_olss_model_vehicle_id_prev = a.tm_olss_model_vehicle_id_prev,
                         tm_olss_brand_id = a.tm_olss_brand_id,
                         model_vehicle_name = a.model_vehicle_name,
-                        model_vehicle_desc = a.model_vehicle_desc
+                        model_vehicle_desc = a.model_vehicle_desc,
+                        brand_name = null
                     }
                 );
 
@@ -87,15 +88,15 @@ namespace abdp.Service
                     }
                 );
                 
-                try
-                {
-                    var results = combinedQuery.ToList(); // Eksekusi query
-                                                          // Lakukan sesuatu dengan 'results', misalnya debug untuk melihat data
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Error: {ex.Message}");
-                }
+                //try
+                //{
+                //    var results = combinedQuery.ToList(); // Eksekusi query
+                //                                          // Lakukan sesuatu dengan 'results', misalnya debug untuk melihat data
+                //}
+                //catch (Exception ex)
+                //{
+                //    Console.WriteLine($"Error: {ex.Message}");
+                //}
 
                 return query1;
             }

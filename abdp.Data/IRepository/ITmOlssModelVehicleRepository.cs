@@ -13,7 +13,6 @@ namespace abdp.Data
     {
         IEnumerable<tm_olss_model_vehicle> SelectAll();
         tm_olss_model_vehicle SelectById(int id);
-        //tm_olss_model_vehicle SelectSingle(Expression<Func<tm_olss_model_vehicle, bool>> where);
 
         IQueryable<tm_olss_model_vehicle> AsQueryable();
         IQueryable<tm_olss_model_vehicle> AsQueryable(Expression<Func<tm_olss_model_vehicle, bool>> where);

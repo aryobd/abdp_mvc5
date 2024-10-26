@@ -214,6 +214,19 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\DataTables1.9.4\css\jquery.dataTables.css" />
+    <Content Include="Content\DataTables1.9.4\css\jquery.dataTables_themeroller.css" />
+    <Content Include="Content\DataTables1.9.4\images\back_disabled.png" />
+    <Content Include="Content\DataTables1.9.4\images\back_enabled.png" />
+    <Content Include="Content\DataTables1.9.4\images\back_enabled_hover.png" />
+    <Content Include="Content\DataTables1.9.4\images\forward_disabled.png" />
+    <Content Include="Content\DataTables1.9.4\images\forward_enabled.png" />
+    <Content Include="Content\DataTables1.9.4\images\forward_enabled_hover.png" />
+    <Content Include="Content\DataTables1.9.4\images\sort_asc.png" />
+    <Content Include="Content\DataTables1.9.4\images\sort_asc_disabled.png" />
+    <Content Include="Content\DataTables1.9.4\images\sort_both.png" />
+    <Content Include="Content\DataTables1.9.4\images\sort_desc.png" />
+    <Content Include="Content\DataTables1.9.4\images\sort_desc_disabled.png" />
     <Content Include="Content\DataTables\datatables.min.css" />
     <Content Include="Content\Olss\datatables.css" />
     <Content Include="favicon.ico" />
@@ -223,6 +236,8 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\DataTables1.9.4\js\jquery.dataTables.js" />
+    <Content Include="Scripts\DataTables1.9.4\js\jquery.dataTables.min.js" />
     <Content Include="Scripts\DataTables\datatables.min.js" />
     <Content Include="Scripts\DataTables\jquery-3.7.1.js" />
     <Content Include="Scripts\DataTables\pdfmake.min.js" />
@@ -300,10 +315,6 @@
     <ProjectReference Include="..\abdp.Service\abdp.Service.csproj">
       <Project>{99aa029c-eac1-45df-aef8-74fafce5a265}</Project>
       <Name>abdp.Service</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\olss.Data\olss.Data.csproj">
-      <Project>{8631ee90-94c6-45c5-8215-0cb7d361f6e2}</Project>
-      <Name>olss.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

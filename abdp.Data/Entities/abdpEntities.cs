@@ -20,10 +20,10 @@ namespace abdp.Data.Entities
         {
         }
     
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            //throw new UnintentionalCodeFirstException();
-        }
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    //throw new UnintentionalCodeFirstException();
+        //}
     
         public virtual DbSet<tm_olss_brand> tm_olss_brand { get; set; }
         public virtual DbSet<tm_olss_model_vehicle> tm_olss_model_vehicle { get; set; }

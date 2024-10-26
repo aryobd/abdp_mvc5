@@ -13,7 +13,6 @@ namespace abdp.Data
     {
         IEnumerable<tm_olss_brand> SelectAll();
         tm_olss_brand SelectById(int id);
-        //tm_olss_brand SelectSingle(Expression<Func<tm_olss_brand, bool>> where);
 
         IQueryable<tm_olss_brand> AsQueryable();
         IQueryable<tm_olss_brand> AsQueryable(Expression<Func<tm_olss_brand, bool>> where);

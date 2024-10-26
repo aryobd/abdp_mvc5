@@ -1,8 +1,8 @@
 using abdp.Data;
 using abdp.Data.Infrastructure;
 
-using olss.Data;
-using olss.Data.Infrastructure;
+//using olss.Data;
+//using olss.Data.Infrastructure;
 
 using abdp.Service;
 
@@ -26,23 +26,23 @@ namespace abdp.Web
             container.RegisterType<IDatabaseFactory, DatabaseFactory>();
             container.RegisterType<IUnitOfWork, UnitOfWork>();
 
-            container.RegisterType<IDatabaseFactoryOlss, DatabaseFactoryOlss>();
-            container.RegisterType<IUnitOfWorkOlss, UnitOfWorkOlss>();
+            //container.RegisterType<IDatabaseFactoryOlss, DatabaseFactoryOlss>();
+            //container.RegisterType<IUnitOfWorkOlss, UnitOfWorkOlss>();
 
             //container.RegisterType(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             //container.RegisterType<IHubActivator, HubActivator>();
 
             #region REPOSITORY
-            container.RegisterType<IMaintenanceCategoryRepository, MaintenanceCategoryRepository>();
-            container.RegisterType<IMaintenanceItemRepository, MaintenanceItemRepository>();
+            //container.RegisterType<IMaintenanceCategoryRepository, MaintenanceCategoryRepository>();
+            //container.RegisterType<IMaintenanceItemRepository, MaintenanceItemRepository>();
 
             container.RegisterType<ITmOlssBrandRepository, TmOlssBrandRepository>();
             container.RegisterType<ITmOlssModelVehicleRepository, TmOlssModelVehicleRepository>();
             #endregion REPOSITORY
 
             #region SERVICE
-            container.RegisterType<IMaintenanceCategoryService, MaintenanceCategoryService>();
-            container.RegisterType<IMaintenanceItemService, MaintenanceItemService>();
+            //container.RegisterType<IMaintenanceCategoryService, MaintenanceCategoryService>();
+            //container.RegisterType<IMaintenanceItemService, MaintenanceItemService>();
 
             container.RegisterType<ITmOlssBrandService, TmOlssBrandService>();
             container.RegisterType<ITmOlssModelVehicleService, TmOlssModelVehicleService>();

@@ -16,10 +16,5 @@ namespace abdp.Data
             : base(databaseFactory)
         {
         }
-
-        //public tm_olss_model_vehicle SelectSingle(Expression<Func<tm_olss_model_vehicle, bool>> where)
-        //{
-        //    return dbset.Where(where).SingleOrDefault();
-        //}
     }
 }

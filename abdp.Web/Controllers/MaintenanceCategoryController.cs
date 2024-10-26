@@ -14,12 +14,12 @@ namespace abdp.Web.Controllers
 {
     public class MaintenanceCategoryController : Controller
     {
-        private readonly IMaintenanceCategoryService _service;
+        //private readonly IMaintenanceCategoryService _service;
 
-        public MaintenanceCategoryController(IMaintenanceCategoryService service)
-        {
-            _service = service;
-        }   
+        //public MaintenanceCategoryController(IMaintenanceCategoryService service)
+        //{
+        //    _service = service;
+        //}
 
         // GET: MaintenanceCategory
         public ActionResult Index()
@@ -55,6 +55,7 @@ namespace abdp.Web.Controllers
 
         public ActionResult AjaxHandler(JQueryDataTableParamModel param)
         {
+            /*
             try
             {
                 #region Set Filter
@@ -115,6 +116,9 @@ namespace abdp.Web.Controllers
             {
                 return View("Error");
             }
+            */
+
+            return View();
         }
     }
 }

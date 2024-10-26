@@ -16,10 +16,5 @@ namespace abdp.Data
             : base(databaseFactory)
         {
         }
-
-        //public tm_olss_brand SelectSingle(Expression<Func<tm_olss_brand, bool>> where)
-        //{
-        //    return dbset.Where(where).SingleOrDefault();
-        //}
     }
 }
