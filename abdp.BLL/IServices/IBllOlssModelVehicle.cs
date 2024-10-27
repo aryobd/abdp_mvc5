@@ -21,5 +21,7 @@ namespace abdp.BLL.IServices
             Expression<Func<BllOlssModelVehicleModel, string>> sort,
             string sortDirection
         );
+
+        int DoSave();
     }
 }

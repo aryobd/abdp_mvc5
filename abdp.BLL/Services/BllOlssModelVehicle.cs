@@ -138,5 +138,40 @@ namespace abdp.BLL.Services
                     return Query.Where(where).OrderByDescending(sort).Skip(skip).Take(take).ToList();
             }
         }
+
+        public int DoSave()
+        {
+            abdpEntities dbContext = new abdpEntities();
+            var tran = dbContext.Database.BeginTransaction();
+
+            dbContext.tm_olss_brand.Add(new tm_olss_brand
+            {
+                brand_name = "xxx",
+                brand_desc = "xxx"
+            });
+
+            tm_olss_brand item1 = new tm_olss_brand();
+            item1.brand_name = "yyy";
+            item1.brand_desc = "yyy";
+            dbContext.tm_olss_brand.Add(item1);
+
+            tm_olss_brand item2 = new tm_olss_brand();
+            item2.brand_name = "zzz";
+            item2.brand_desc = "zzz";
+            dbContext.tm_olss_brand.Add(item2);
+
+            try
+            {
+                dbContext.SaveChanges();
+
+                tran.Commit();
+            }
+            catch (Exception ex)
+            {
+                tran.Rollback();
+            }
+
+            return 1;
+        }
     }
 }

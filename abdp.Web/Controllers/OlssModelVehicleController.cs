@@ -101,6 +101,8 @@ namespace abdp.Web.Controllers
                                     o.brand_name
                                 };
 
+                _bllService.DoSave();
+
                 return Json(new
                 {
                     param.sEcho,
