@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "abdp.Service", "abdp.Servic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "abdp.Data", "abdp.Data\abdp.Data.csproj", "{A5129AD2-C438-4DD8-B437-6BB1B420BA08}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "abdp.BLL", "abdp.BLL\abdp.BLL.csproj", "{DF18BFC9-76E7-4F5D-962E-F72D067969BB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{A5129AD2-C438-4DD8-B437-6BB1B420BA08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5129AD2-C438-4DD8-B437-6BB1B420BA08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5129AD2-C438-4DD8-B437-6BB1B420BA08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF18BFC9-76E7-4F5D-962E-F72D067969BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF18BFC9-76E7-4F5D-962E-F72D067969BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF18BFC9-76E7-4F5D-962E-F72D067969BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF18BFC9-76E7-4F5D-962E-F72D067969BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

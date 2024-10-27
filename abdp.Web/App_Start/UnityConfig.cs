@@ -1,3 +1,6 @@
+using abdp.BLL.IServices;
+using abdp.BLL.Services;
+
 using abdp.Data;
 using abdp.Data.Infrastructure;
 
@@ -48,6 +51,8 @@ namespace abdp.Web
             container.RegisterType<ITmOlssModelVehicleService, TmOlssModelVehicleService>();
 
             container.RegisterType<IEmployeeService, EmployeeService>();
+
+            container.RegisterType<IBllOlssModelVehicle, BllOlssModelVehicle>();
             #endregion SERVICE
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));

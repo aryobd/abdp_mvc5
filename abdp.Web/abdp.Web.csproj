@@ -390,6 +390,10 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\abdp.BLL\abdp.BLL.csproj">
+      <Project>{df18bfc9-76e7-4f5d-962e-f72d067969bb}</Project>
+      <Name>abdp.BLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\abdp.Data\abdp.Data.csproj">
       <Project>{a5129ad2-c438-4dd8-b437-6bb1b420ba08}</Project>
       <Name>abdp.Data</Name>
