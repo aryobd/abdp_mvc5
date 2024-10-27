@@ -77,7 +77,13 @@ namespace abdp.Web.Controllers
                 var sortDirection = Request["sSortDir_0"]; // ASC / DESC
                 #endregion SET SORTING & ORDERING
 
-                var listData = _service.GetList(filter, param.iDisplayLength, param.iDisplayStart, ordering, sortDirection);
+                var listData = _service.GetList(
+                    filter,
+                    param.iDisplayLength,
+                    param.iDisplayStart,
+                    ordering,
+                    sortDirection
+                );
                 var result = from o in listData
                              select new
                              {
@@ -89,32 +95,28 @@ namespace abdp.Web.Controllers
                                  o.brand_name
                              };
 
-                var bllListData = _bllService.GetList(bllFilter, param.iDisplayLength, param.iDisplayStart, bllOrdering, sortDirection);
-                var bllResult = from o in bllListData
-                                select new
-                                {
-                                    o.tm_olss_model_vehicle_id,
-                                    o.tm_olss_model_vehicle_id_prev,
-                                    o.tm_olss_brand_id,
-                                    o.model_vehicle_name,
-                                    o.model_vehicle_desc,
-                                    o.brand_name
-                                };
+                var bllListData = _bllService.GetList(
+                    bllFilter,
+                    param.iDisplayLength,
+                    param.iDisplayStart,
+                    bllOrdering,
+                    sortDirection
+                );
 
                 _bllService.DoSave();
 
                 return Json(new
-                {
-                    param.sEcho,
+                    {
+                        param.sEcho,
 
-                    //iTotalRecords = _service.TotalRows(),
-                    //iTotalDisplayRecords = _service.TotalRows(filter),
-                    //aaData = result.ToList()
+                        //iTotalRecords = _service.TotalRows(),
+                        //iTotalDisplayRecords = _service.TotalRows(filter),
+                        //aaData = result.ToList()
 
-                    iTotalRecords = _bllService.TotalRows(),
-                    iTotalDisplayRecords = _bllService.TotalRows(bllFilter),
-                    aaData = bllResult.ToList()
-                },
+                        iTotalRecords = _bllService.TotalRows(),
+                        iTotalDisplayRecords = _bllService.TotalRows(bllFilter),
+                        aaData = bllListData
+                    },
                     JsonRequestBehavior.AllowGet
                 );
             }

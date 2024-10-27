@@ -92,7 +92,7 @@ namespace abdp.BLL.Services
                         from tm_olss_model_vehicle x2
                         where a.tm_olss_model_vehicle_id = x2.tm_olss_model_vehicle_id_prev
                     )
-                ";
+                    ";
 
                 // EXECUTE THE QUERY AND MAP TO THE MODEL
                 var qry3 = dbContext.Database.SqlQuery<BllOlssModelVehicleModel>(sqlQuery).AsQueryable();
@@ -144,24 +144,24 @@ namespace abdp.BLL.Services
             abdpEntities dbContext = new abdpEntities();
             var tran = dbContext.Database.BeginTransaction();
 
-            dbContext.tm_olss_brand.Add(new tm_olss_brand
-            {
-                brand_name = "xxx",
-                brand_desc = "xxx"
-            });
-
-            tm_olss_brand item1 = new tm_olss_brand();
-            item1.brand_name = "yyy";
-            item1.brand_desc = "yyy";
-            dbContext.tm_olss_brand.Add(item1);
-
-            tm_olss_brand item2 = new tm_olss_brand();
-            item2.brand_name = "zzz";
-            item2.brand_desc = "zzz";
-            dbContext.tm_olss_brand.Add(item2);
-
             try
             {
+                dbContext.tm_olss_brand.Add(new tm_olss_brand
+                {
+                    brand_name = "xxx",
+                    brand_desc = "xxx"
+                });
+
+                tm_olss_brand item1 = new tm_olss_brand();
+                item1.brand_name = "yyy";
+                item1.brand_desc = "yyy";
+                dbContext.tm_olss_brand.Add(item1);
+
+                tm_olss_brand item2 = new tm_olss_brand();
+                item2.brand_name = "zzz";
+                item2.brand_desc = "zzz";
+                dbContext.tm_olss_brand.Add(item2);
+
                 dbContext.SaveChanges();
 
                 tran.Commit();
