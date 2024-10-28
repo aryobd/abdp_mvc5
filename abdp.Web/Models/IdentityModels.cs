@@ -21,7 +21,7 @@ namespace abdp.Web.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("abdp_Entities", throwIfV1Schema: false)
         {
         }
 
